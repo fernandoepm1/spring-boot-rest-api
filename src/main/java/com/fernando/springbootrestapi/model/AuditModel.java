@@ -1,4 +1,4 @@
-package com.fernando.springbootrestapi.models;
+package com.fernando.springbootrestapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
