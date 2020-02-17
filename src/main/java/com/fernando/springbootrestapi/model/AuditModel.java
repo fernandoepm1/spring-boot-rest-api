@@ -16,22 +16,20 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(
-	value = { "createdAt", "updatedAt" },
-	allowGetters = true
-)
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public abstract class AuditModel {
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at", nullable = false, updatable = false)
 	@CreatedDate
 	private Date createdAt;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_at", nullable = false)
 	@LastModifiedDate
 	private Date updatedAt;
 
+	// Getters and Setters
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -46,5 +44,13 @@ public abstract class AuditModel {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
-	}		
+	}
+
+	@Override
+	public String toString() {
+		return "{" +
+			" createdAt='" + getCreatedAt() + "'" +
+			", updatedAt='" + getUpdatedAt() + "'" +
+			"}";
+	}
 }

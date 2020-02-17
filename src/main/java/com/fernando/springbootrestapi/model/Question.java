@@ -12,13 +12,20 @@ public class Question extends AuditModel {
 	@SequenceGenerator(name = "question_generator", sequenceName = "question_sequence", initialValue = 1000)
 	@Id
 	private Long id;
-	
+
 	@Size(min = 3, max = 100)
 	@NotBlank
 	private String title;
-	
+
 	@Column(columnDefinition = "text")
 	private String description;
+
+	// Constructor
+	public Question(Long id, String title, String description) {
+		this.id = id;
+		this.title = title;
+		this.description = description;
+	}
 
 	// Getters and Setters
 	public Long getId() {
@@ -43,5 +50,14 @@ public class Question extends AuditModel {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return "{" +
+			" id='" + getId() + "'" +
+			", title='" + getTitle() + "'" +
+			", description='" + getDescription() + "'" +
+			"}";
+	}
 }
