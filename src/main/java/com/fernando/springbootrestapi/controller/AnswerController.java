@@ -2,8 +2,8 @@ package com.fernando.springbootrestapi.controller;
 
 import com.fernando.springbootrestapi.exception.ResourceNotFoundException;
 import com.fernando.springbootrestapi.model.Answer;
-import com.fernando.springbootrestapi.dao.AnswerRepository;
-import com.fernando.springbootrestapi.dao.QuestionRepository;
+import com.fernando.springbootrestapi.repository.AnswerRepository;
+import com.fernando.springbootrestapi.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
