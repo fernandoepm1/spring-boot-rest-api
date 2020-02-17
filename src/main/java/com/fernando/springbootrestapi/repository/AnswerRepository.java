@@ -1,4 +1,4 @@
-package com.fernando.springbootrestapi.dao;
+package com.fernando.springbootrestapi.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
