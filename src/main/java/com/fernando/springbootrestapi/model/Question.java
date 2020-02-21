@@ -5,10 +5,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "questions")
 @Data
+@NoArgsConstructor
 public class Question extends AuditModel {
 
 	@GeneratedValue(generator = "question_generator")
@@ -22,11 +24,4 @@ public class Question extends AuditModel {
 
 	@Column(columnDefinition = "text")
 	private String description;
-
-	// Constructor
-	public Question(Long id, String title, String description) {
-		this.id = id;
-		this.title = title;
-		this.description = description;
-	}
 }

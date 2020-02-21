@@ -6,10 +6,12 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @Table(name = "answers")
+@Data
+@NoArgsConstructor
 public class Answer extends AuditModel {
 
 	@GeneratedValue(generator = "answer_generator")
@@ -25,11 +27,4 @@ public class Answer extends AuditModel {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JsonIgnore
 	private Question question;
-
-	// Constructor
-	public Answer(Long id, String text, Question question) {
-		this.id = id;
-		this.text = text;
-		this.question = question;
-	}
 }
