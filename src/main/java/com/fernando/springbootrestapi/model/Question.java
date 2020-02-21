@@ -4,8 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "questions")
+@Data
 public class Question extends AuditModel {
 
 	@GeneratedValue(generator = "question_generator")
@@ -25,39 +28,5 @@ public class Question extends AuditModel {
 		this.id = id;
 		this.title = title;
 		this.description = description;
-	}
-
-	// Getters and Setters
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	@Override
-	public String toString() {
-		return "{" +
-			" id='" + getId() + "'" +
-			", title='" + getTitle() + "'" +
-			", description='" + getDescription() + "'" +
-			"}";
 	}
 }

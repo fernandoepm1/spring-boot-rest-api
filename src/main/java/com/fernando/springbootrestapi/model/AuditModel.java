@@ -14,6 +14,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import lombok.Data;
+
+@Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
@@ -28,29 +31,4 @@ public abstract class AuditModel {
 	@Column(name = "updated_at", nullable = false)
 	@LastModifiedDate
 	private Date updatedAt;
-
-	// Getters and Setters
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	@Override
-	public String toString() {
-		return "{" +
-			" createdAt='" + getCreatedAt() + "'" +
-			", updatedAt='" + getUpdatedAt() + "'" +
-			"}";
-	}
 }
